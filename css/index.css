@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'GoT';
+  src: url(/fonts/GoT.ttf);
+}
+
 body {
   margin: 0px;
   display: flex;
@@ -32,11 +37,13 @@ aside {
   flex: 0 0 12.5%;
 }
 
-.character img {
+.character__image {
   margin: auto;
   display: block;
 }
 
-.character div {
+.character__name {
   text-align: center;
+  padding: 5px 0px 5px 0px;
+  font-family: 'GoT', Georgia, 'Times New Roman', Times, serif;
 }

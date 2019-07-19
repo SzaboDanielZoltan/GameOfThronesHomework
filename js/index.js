@@ -6,8 +6,8 @@ const GameOfThrones = {
       if (!this.characters[i].dead) {
         main.innerHTML += `
       <div class="character" data-name="${this.characters[i].name}">
-        <img src="/${this.characters[i].portrait}" alt="${this.characters[i].name}">
-        <div>${this.characters[i].name}</div>
+        <img class="character__image" src="/${this.characters[i].portrait}" alt="${this.characters[i].name}">
+        <div class="character__name">${this.characters[i].name}</div>
       </div>
       `;
       }
