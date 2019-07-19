@@ -1,5 +1,13 @@
 const GameOfThrones = {
   characters: [],
+  searchCharacter() {
+    if (this.getCharacterByName(event.target.value) !== undefined) {
+      this.showInfo(event.target.value);
+    } else {
+      const bio = document.querySelector('.bio');
+      bio.innerHTML = '<p>Character not found</p>';
+    }
+  },
   houseOrOrganizationValidator(charObj) {
     if (charObj.house !== undefined) {
       return `<img class="bio__house" src="../assets/houses/${charObj.house}.png" alt="${charObj.house}">`;
