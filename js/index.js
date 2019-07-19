@@ -1,12 +1,22 @@
 const GameOfThrones = {
   characters: [],
   searchCharacter() {
-    if (this.getCharacterByName(event.target.value) !== undefined) {
-      this.showInfo(event.target.value);
+    if (this.getCharacterByName(document.querySelector('#search').value) !== undefined) {
+      this.showInfo(document.querySelector('#search').value);
     } else {
       const bio = document.querySelector('.bio');
       bio.innerHTML = '<p>Character not found</p>';
     }
+  },
+  toggleEffectsOnSelect(name) {
+    const portraits = Array.from(document.querySelectorAll('.character__portrait'));
+    portraits.forEach(img => (name !== img.name
+      ? img.classList.add('character__portrait--effectonselect')
+      : img.classList.remove('character__portrait--effectonselect')));
+    const names = Array.from(document.querySelectorAll('.character__name'));
+    names.forEach(div => (name !== div.children[0].id
+      ? div.classList.remove('character__name--effectonselect')
+      : div.classList.add('character__name--effectonselect')));
   },
   houseOrOrganizationValidator(charObj) {
     if (charObj.house !== undefined) {
@@ -17,7 +27,7 @@ const GameOfThrones = {
     return '';
   },
   getCharacterByName(name) {
-    return this.characters.filter(char => char.name === name)[0];
+    return this.characters.filter(char => char.name.toLowerCase() === name.toLowerCase())[0];
   },
   showInfo(name) {
     const characterObj = this.getCharacterByName(name);
@@ -28,6 +38,7 @@ const GameOfThrones = {
     ${this.houseOrOrganizationValidator(characterObj)}
     <p>${characterObj.bio}</p>
     `;
+    this.toggleEffectsOnSelect(name);
   },
   makeCharacterDivs() {
     const main = document.querySelector('main');
@@ -35,7 +46,7 @@ const GameOfThrones = {
       if (!this.characters[i].dead) {
         main.innerHTML += `
       <div class="character">
-        <img class="character__portrait" src="/${this.characters[i].portrait}" alt="${this.characters[i].name}">
+        <img class="character__portrait" src="/${this.characters[i].portrait}" alt="${this.characters[i].name}" name="${this.characters[i].name}" onclick="GameOfThrones.showInfo(this.name)">
         <div class="character__name">
           <span id="${this.characters[i].name}" onclick="GameOfThrones.showInfo(this.id)">
             ${this.characters[i].name}
