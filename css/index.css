@@ -31,13 +31,18 @@ aside {
   order: 0;
   flex: 1 1 auto;
   align-self: stretch;
+  color: #FFF;
+  background: #555;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .character {
   flex: 0 0 12.5%;
 }
 
-.character__image {
+.character__portrait {
   margin: auto;
   display: block;
 }
@@ -45,5 +50,27 @@ aside {
 .character__name {
   text-align: center;
   padding: 5px 0px 5px 0px;
+}
+
+h1 {
   font-family: 'GoT', Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+}
+
+.bio {
+  flex-grow: 1;
+}
+
+.bio__picture {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+}
+
+h2 {
+  display: inline-block;
+}
+
+.bio__house {
+ display: inline;
 }
