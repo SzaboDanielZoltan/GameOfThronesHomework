@@ -6,7 +6,14 @@ const GameOfThrones = {
     } else {
       const bio = document.querySelector('.bio');
       bio.innerHTML = '<p>Character not found</p>';
+      this.turnEffectsOff();
     }
+  },
+  turnEffectsOff() {
+    const portraits = Array.from(document.querySelectorAll('.character__portrait'));
+    portraits.forEach(img => img.classList.remove('character__portrait--effectonselect'));
+    const names = Array.from(document.querySelectorAll('.character__name'));
+    names.forEach(div => div.classList.remove('character__name--effectonselect'));
   },
   toggleEffectsOnSelect(name) {
     const portraits = Array.from(document.querySelectorAll('.character__portrait'));

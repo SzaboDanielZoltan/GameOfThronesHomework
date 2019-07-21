@@ -4,38 +4,38 @@
 }
 
 body {
-  margin: 0px;
+  align-content: stretch;
+  align-items: flex-start;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  align-content: stretch;
-  align-items: flex-start;
+  margin: 0px;
 }
 
 main {
+  align-self: stretch;
   background-image: url("/assets/site/mapblue.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  width: 80vh;
-  order: 0;
-  flex: 4 1 auto;
-  align-self: stretch;
   display: flex;
+  flex: 4 1 auto;
   flex-wrap: wrap;
   justify-content: space-around;
+  order: 0;
+  width: 80vh;
 }
 
 aside {
-  width: 20vh;
-  order: 0;
-  flex: 1 1 auto;
-  align-self: stretch;
-  color: #FFF;
-  background: #555;
-  display: flex;
-  flex-direction: column;
   align-items: stretch;
+  align-self: stretch;
+  background: #555;
+  color: #FFF;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  order: 0;
+  width: 20vh;
 }
 
 .character {
@@ -43,8 +43,8 @@ aside {
 }
 
 .character__portrait {
-  margin: auto;
   display: block;
+  margin: auto;
 }
 
 .character__portrait--effectonselect {
@@ -52,9 +52,9 @@ aside {
 }
 
 .character__name {
-  text-align: center;
   font-size: 20px;
   padding: 5px 0px 5px 0px;
+  text-align: center;
 }
 
 .character__name--effectonselect {
@@ -71,10 +71,10 @@ h1 {
 }
 
 .bio__picture {
+  border-radius: 20px;
   display: block;
   max-width: 100%;
   width: 100%;
-  border-radius: 20px;
 }
 
 h2 {
@@ -91,11 +91,11 @@ h2 {
 }
 
 input {
-  margin: 0 0 10px 0;
-  padding: 10px;
+  background-color: #555;
   border-radius: 10px;
   color: #FFF;
-  background-color: #555;
+  margin: 0 0 10px 0;
+  padding: 10px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -107,18 +107,18 @@ input {
     background-image: url("/assets/site/mapblue.jpg");
     background-repeat: no-repeat;
     background-position: center;
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    width: 100%;
   }
   
   aside {
-    color: #FFF;
+    align-items: stretch;
     background: #555;
-    width: 100%;
+    color: #FFF;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    width: 100%;
   }
 }
