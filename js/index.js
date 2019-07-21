@@ -1,19 +1,24 @@
 const GameOfThrones = {
   characters: [],
-  searchCharacter() {
-    if (this.getCharacterByName(document.querySelector('#search').value) !== undefined) {
-      this.showInfo(document.querySelector('#search').value);
-    } else {
-      const bio = document.querySelector('.bio');
-      bio.innerHTML = '<p>Character not found</p>';
-      this.turnEffectsOff();
-    }
+  emptyInput() {
+    const inputSearch = document.querySelector('#search');
+    inputSearch.value = '';
   },
   turnEffectsOff() {
     const portraits = Array.from(document.querySelectorAll('.character__portrait'));
     portraits.forEach(img => img.classList.remove('character__portrait--effectonselect'));
     const names = Array.from(document.querySelectorAll('.character__name'));
     names.forEach(div => div.classList.remove('character__name--effectonselect'));
+  },
+  searchCharacter() {
+    if (this.getCharacterByName(document.querySelector('#search').value) !== undefined) {
+      this.showInfo(document.querySelector('#search').value);
+      this.emptyInput();
+    } else {
+      const bio = document.querySelector('.bio');
+      bio.innerHTML = '<p>Character not found</p>';
+      this.turnEffectsOff();
+    }
   },
   toggleEffectsOnSelect(name) {
     const portraits = Array.from(document.querySelectorAll('.character__portrait'));
@@ -45,6 +50,7 @@ const GameOfThrones = {
     ${this.houseOrOrganizationValidator(characterObj)}
     <p>${characterObj.bio}</p>
     `;
+    this.emptyInput();
     this.toggleEffectsOnSelect(name);
   },
   makeCharacterDivs() {
