@@ -13,7 +13,6 @@ const GameOfThrones = {
   searchCharacter() {
     if (this.getCharacterByName(document.querySelector('#search').value) !== undefined) {
       this.showInfo(document.querySelector('#search').value);
-      this.emptyInput();
     } else {
       const bio = document.querySelector('.bio');
       bio.innerHTML = '<p>Character not found</p>';
@@ -51,7 +50,7 @@ const GameOfThrones = {
     <p>${characterObj.bio}</p>
     `;
     this.emptyInput();
-    this.toggleEffectsOnSelect(name);
+    this.toggleEffectsOnSelect(characterObj.name);
   },
   makeCharacterDivs() {
     const main = document.querySelector('main');
